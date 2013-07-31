@@ -1,62 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Slide&amp;Push Mobile Menu by RemiDelhaye</title>
-  </head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Slide&Push Mobile Menu</title>
+		<meta name="description" content="Slide&Push Mobile Menu" />
+		<meta name="keywords" content="sliding menu, pushing menu, navigation, responsive, menu, css, jquery" />
+		<meta name="author" content="Rémi Delhaye (http://remidelhaye.fr)" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+		<!--[if IE 7]>
+		<link rel="stylesheet" type="text/css" href="css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+	<body class="body-pushed">
+		<nav class="one-menu one-menu-vertical one-menu-left" id="one-menu-s1">
+			<h3><i class="icon-reorder"></i> Menu</h3>
+			<a href="#"><i class="icon-home"></i> Home</a>
+			<a href="#"><i class="icon-music"></i> Music</a>
+			<a href="#"><i class="icon-quote-right"></i> Forum</a>
+			<a href="#"><i class="icon-comment-alt"></i> Chat</a>
+			<a href="#"><i class="icon-envelope"></i> About</a>
+			<a href="#"><i class="icon-user"></i> Contact</a>
+		</nav>
+		<nav class="one-menu one-menu-vertical one-menu-right" id="one-menu-s2">
+			<h3><i class="icon-reorder"></i> Menu</h3>
+			<a href="#"><i class="icon-home"></i> Home</a>
+			<a href="#"><i class="icon-music"></i> Music</a>
+			<a href="#"><i class="icon-quote-right"></i> Forum</a>
+			<a href="#"><i class="icon-comment-alt"></i> Chat</a>
+			<a href="#"><i class="icon-envelope"></i> About</a>
+			<a href="#"><i class="icon-user"></i> Contact</a>
+		</nav>
+		<div class="container">
+			<div class="main">
+				<section>
+					<h2>Slide Menus</h2>
+					<!-- Class "one-menu-open" gets applied to menu -->
+					<button id="showLeft"><i class="icon-arrow-right"></i> Show/Hide <b>Left</b> Slide Menu</button>
+					<button id="showRight"><i class="icon-arrow-left"></i> Show/Hide <b>Right</b> Slide Menu</button>
+				</section>
+				<section class="buttonset">
+					<h2>Push Menus</h2>
+					<!-- Class "one-menu-open" gets applied to menu and "body-pushed-toleft" or "body-pushed-toright" to the body -->
+					<button id="showLeftPush"><i class="icon-chevron-right"></i> Show/Hide <b>Left</b> Push Menu</button>
+					<button id="showRightPush"><i class="icon-chevron-left"></i> Show/Hide <b>Right</b> Push Menu</button>
+				</section>
+			</div>
+		</div>
+		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+		<script src="js/classie.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'one-menu-s1' ),
+				menuRight = document.getElementById( 'one-menu-s2' ),
+				showLeft = document.getElementById( 'showLeft' ),
+				showRight = document.getElementById( 'showRight' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				showRightPush = document.getElementById( 'showRightPush' ),
+				body = document.body;
 
-  <body>
-    <div id="container">
-      <div class="inner">
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'one-menu-open' );
+				disableOther( 'showLeft' );
+			};
+			showRight.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuRight, 'one-menu-open' );
+				disableOther( 'showRight' );
+			};
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'body-pushed-toright' );
+				classie.toggle( menuLeft, 'one-menu-open' );
+				disableOther( 'showLeftPush' );
+			};
+			showRightPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'body-pushed-toleft' );
+				classie.toggle( menuRight, 'one-menu-open' );
+				disableOther( 'showRightPush' );
+			};
 
-        <header>
-          <h1>Slide&amp;Push Mobile Menu</h1>
-          <h2>An Open-source navigation for web mobile apps</h2>
-        </header>
-
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/RemiDelhaye/SPMobileMenu/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/RemiDelhaye/SPMobileMenu/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/RemiDelhaye/SPMobileMenu" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h1>
-<a name="welcome-to-slidepush-mobile-menu-" class="anchor" href="#welcome-to-slidepush-mobile-menu-"><span class="octicon octicon-link"></span></a>Welcome to Slide&amp;Push Mobile Menu !</h1>
-
-<hr><h2>
-<a name="how-it-works-" class="anchor" href="#how-it-works-"><span class="octicon octicon-link"></span></a>How it works ?</h2>
-
-<p>Those menus works with Javascript &amp; CSS3 only. I also use FontAwesome for some design.</p>
-
-<h2>
-<a name="author" class="anchor" href="#author"><span class="octicon octicon-link"></span></a>Author</h2>
-
-<p>Rémi Delhaye</p>
-
-<ul>
-<li><a href="https://github.com/RemiDelhaye">https://github.com/RemiDelhaye</a></li>
-<li><a href="http://remidelhaye.fr">http://remidelhaye.fr</a></li>
-</ul>
-        </section>
-
-        <footer>
-          Slide&amp;Push Mobile Menu is maintained by <a href="https://github.com/RemiDelhaye">RemiDelhaye</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
-    </div>
-  </body>
+			function disableOther( button ) {
+				if( button !== 'showLeft' ) {
+					classie.toggle( showLeft, 'disabled' );
+				}
+				if( button !== 'showRight' ) {
+					classie.toggle( showRight, 'disabled' );
+				}
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+				if( button !== 'showRightPush' ) {
+					classie.toggle( showRightPush, 'disabled' );
+				}
+			}
+		</script>
+	</body>
 </html>
