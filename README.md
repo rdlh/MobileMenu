@@ -5,7 +5,7 @@ What is this ?
 
 *This javascript plugin is an Open-source Javascript mobile app menu*
 
-> ### [DEMO](http://remidelhaye.github.io/SPMobileMenu)
+> ### [DEMO](http://remidelhaye.github.io/MobileMenu)
 
 
 How it works ?
