@@ -109,6 +109,7 @@
 			};
 			
 			content.onclick = function () {
+				alert(active.class);
 			        if (active === showLeftPush) {
 					classie.toggle(active, 'active');
 					classie.toggle(body, 'body-pushed-toright');
