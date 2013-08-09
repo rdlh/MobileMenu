@@ -36,7 +36,7 @@
 			<a href="#"><i class="icon-envelope"></i> About</a>
 			<a href="#"><i class="icon-user"></i> Contact</a>
 		</nav>
-		<div class="container">
+		<div id="container" class="container">
 			<div class="main">
 				<section>
 					<h2>Slide Menus</h2>
@@ -62,7 +62,7 @@
 			    showLeftPush  = document.getElementById( 'showLeftPush' ),
 			    showRightPush = document.getElementById( 'showRightPush' ),
 			    body          = document.body;
-			    //content       = document.getElementById( 'body' );
+			    content       = document.getElementById( 'container' );
 			    active        = null;
 
 			showLeft.onclick = function() {
@@ -108,7 +108,7 @@
 				//disableOther( 'showRightPush' );
 			};
 			
-			body.onclick = function () {
+			content.onclick = function () {
 				alert(active.class);
 			        if (active === showLeftPush) {
 					classie.toggle(active, 'active');
