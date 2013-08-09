@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
+	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -11,7 +11,7 @@
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 		<!--[if IE 7]>
 		<link rel="stylesheet" type="text/css" href="css/font-awesome-ie7.min.css">
 		<![endif]-->
@@ -55,38 +55,80 @@
 		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
 		<script src="js/classie.js"></script>
 		<script>
-			var menuLeft = document.getElementById( 'one-menu-s1' ),
-				menuRight = document.getElementById( 'one-menu-s2' ),
-				showLeft = document.getElementById( 'showLeft' ),
-				showRight = document.getElementById( 'showRight' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
+			var menuLeft      = document.getElementById( 'one-menu-s1' ),
+			    menuRight     = document.getElementById( 'one-menu-s2' ),
+			    showLeft      = document.getElementById( 'showLeft' ),
+			    showRight     = document.getElementById( 'showRight' ),
+			    showLeftPush  = document.getElementById( 'showLeftPush' ),
+			    showRightPush = document.getElementById( 'showRightPush' ),
+			    body          = document.body;
+			    content       = document.getElementById('content');
+			    active        = null;
 
 			showLeft.onclick = function() {
+				if (active === showLeft) {
+			            active = null;
+			        } else {
+			            active = this;
+			        }
 				classie.toggle( this, 'active' );
 				classie.toggle( menuLeft, 'one-menu-open' );
-				disableOther( 'showLeft' );
+				//disableOther( 'showLeft' );
 			};
 			showRight.onclick = function() {
+				if (active === showRight) {
+			            active = null;
+			        } else {
+			            active = this;
+			        }
 				classie.toggle( this, 'active' );
 				classie.toggle( menuRight, 'one-menu-open' );
-				disableOther( 'showRight' );
+				//disableOther( 'showRight' );
 			};
 			showLeftPush.onclick = function() {
+				if (active === showRightPush) {
+			            active = null;
+			        } else {
+			            active = this;
+			        }
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'body-pushed-toright' );
 				classie.toggle( menuLeft, 'one-menu-open' );
-				disableOther( 'showLeftPush' );
+				//disableOther( 'showLeftPush' );
 			};
 			showRightPush.onclick = function() {
+				if (active === showRightPush) {
+			            active = null;
+			        } else {
+			            active = this;
+			        }
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'body-pushed-toleft' );
 				classie.toggle( menuRight, 'one-menu-open' );
-				disableOther( 'showRightPush' );
+				//disableOther( 'showRightPush' );
 			};
+			
+			content.onclick = function () {
+			        if (active === showLeftPush) {
+					classie.toggle(active, 'active');
+					classie.toggle(body, 'body-pushed-toright');
+					classie.toggle(menuLeft, 'one-menu-open');
+					active = null;
+			        }
+			        if (active === showRightPush) {
+					classie.toggle(active, 'active');
+					classie.toggle(body, 'body-pushed-toleft');
+					classie.toggle(menuRight, 'one-menu-open');
+					active = null;
+			        }
+			        if (active === showRight || active === showLeft) {
+			        	classie.toggle(active, 'active');
+					classie.toggle(menuRight, 'one-menu-open');
+					active = null;
+			        }
+		    	};
 
-			function disableOther( button ) {
+			/*function disableOther( button ) {
 				if( button !== 'showLeft' ) {
 					classie.toggle( showLeft, 'disabled' );
 				}
@@ -99,7 +141,7 @@
 				if( button !== 'showRightPush' ) {
 					classie.toggle( showRightPush, 'disabled' );
 				}
-			}
+			}*/
 		</script>
 	</body>
 </html>
