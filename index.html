@@ -62,7 +62,7 @@
 			    showLeftPush  = document.getElementById( 'showLeftPush' ),
 			    showRightPush = document.getElementById( 'showRightPush' ),
 			    body          = document.body;
-			    content       = document.getElementById('content');
+			    //content       = document.getElementById( 'body' );
 			    active        = null;
 
 			showLeft.onclick = function() {
@@ -108,7 +108,7 @@
 				//disableOther( 'showRightPush' );
 			};
 			
-			content.onclick = function () {
+			body.onclick = function () {
 				alert(active.class);
 			        if (active === showLeftPush) {
 					classie.toggle(active, 'active');
