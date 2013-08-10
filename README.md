@@ -65,3 +65,8 @@ Contributors
 ------------
 
  * [@RemiDelhaye](https://github.com/RemiDelhaye) ([http://remidelhaye.fr](http://remidelhaye.fr))
+
+Good issues
+-----------
+
+ * [@Tiste](https://github.com/tiste) ([http://tiste.io](http://tiste.io)) - [Issue #1](https://github.com/RemiDelhaye/MobileMenu/issues/1)
