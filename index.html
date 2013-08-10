@@ -61,74 +61,72 @@
 			    showRight     = document.getElementById( 'showRight' ),
 			    showLeftPush  = document.getElementById( 'showLeftPush' ),
 			    showRightPush = document.getElementById( 'showRightPush' ),
-			    body          = document.body;
-			    content       = document.getElementById('content');
+            		    content       = document.getElementById( 'container' ),
+			    body          = document.body,
 			    active        = null;
 
 			showLeft.onclick = function() {
-				if (active === showLeft) {
-			            active = null;
-			        } else {
-			            active = this;
-			        }
 				classie.toggle( this, 'active' );
 				classie.toggle( menuLeft, 'one-menu-open' );
-				//disableOther( 'showLeft' );
+				active = this;
+				disableOther( 'showLeft' );
 			};
 			showRight.onclick = function() {
-				if (active === showRight) {
-			            active = null;
-			        } else {
-			            active = this;
-			        }
 				classie.toggle( this, 'active' );
 				classie.toggle( menuRight, 'one-menu-open' );
-				//disableOther( 'showRight' );
+				active = this;
+				disableOther( 'showRight' );
 			};
 			showLeftPush.onclick = function() {
-				if (active === showRightPush) {
-			            active = null;
-			        } else {
-			            active = this;
-			        }
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'body-pushed-toright' );
 				classie.toggle( menuLeft, 'one-menu-open' );
-				//disableOther( 'showLeftPush' );
+				active = this;
+				disableOther( 'showLeftPush' );
 			};
 			showRightPush.onclick = function() {
-				if (active === showRightPush) {
-			            active = null;
-			        } else {
-			            active = this;
-			        }
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'body-pushed-toleft' );
 				classie.toggle( menuRight, 'one-menu-open' );
-				//disableOther( 'showRightPush' );
+				active = this;
+				disableOther( 'showRightPush' );
 			};
 			
-			content.onclick = function () {
-			        if (active === showLeftPush) {
-					classie.toggle(active, 'active');
-					classie.toggle(body, 'body-pushed-toright');
-					classie.toggle(menuLeft, 'one-menu-open');
-					active = null;
-			        }
-			        if (active === showRightPush) {
-					classie.toggle(active, 'active');
-					classie.toggle(body, 'body-pushed-toleft');
-					classie.toggle(menuRight, 'one-menu-open');
-					active = null;
-			        }
-			        if (active === showRight || active === showLeft) {
-			        	classie.toggle(active, 'active');
-					classie.toggle(menuRight, 'one-menu-open');
-					active = null;
-			        }
-		    	};
+			content.onclick = function(e) {
 
-			/*function disableOther( button ) {
+				if( e.target.nodeName !== 'BUTTON'){
+
+					if (active == showLeft) {
+						classie.toggle( active, 'active' );
+						classie.toggle( menuLeft, 'one-menu-open' );
+						active = null;
+						disableOther( 'showLeft' );
+					}
+					if (active == showRight) {
+						classie.toggle( active, 'active' );
+						classie.toggle( menuRight, 'one-menu-open' );
+						active = null;
+						disableOther( 'showRight' );
+					}
+					if (active == showLeftPush) {
+						classie.toggle( active, 'active' );
+						classie.toggle( body, 'body-pushed-toright' );
+						classie.toggle( menuLeft, 'one-menu-open' );
+						active = null;
+						disableOther( 'showLeftPush' );
+					}
+					if (active == showRightPush) {
+						classie.toggle( active, 'active' );
+						classie.toggle( body, 'body-pushed-toleft' );
+						classie.toggle( menuRight, 'one-menu-open' );
+						active = null;
+						disableOther( 'showRightPush' );
+					}
+
+				}
+			}
+
+			function disableOther( button ) {
 				if( button !== 'showLeft' ) {
 					classie.toggle( showLeft, 'disabled' );
 				}
@@ -141,7 +139,7 @@
 				if( button !== 'showRightPush' ) {
 					classie.toggle( showRightPush, 'disabled' );
 				}
-			}*/
+			}
 		</script>
 	</body>
 </html>
