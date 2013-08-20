@@ -37,8 +37,7 @@ document.addEventListener('touchstart', function(event) {
 }, false);
 
 document.addEventListener('touchend', function(event) {
-    touch = event.changedTouches[0];
-    alert(startxposition + ' - ' + touch.pageX + ' = ' + startxposition - touch.pageX);
+    alert(startxposition + ' - ' + event.changedTouches[0].pageX + ' = ' + startxposition - event.changedTouches[0].pageX);
     if(touch.pageX + 180 <= startxposition && touch.pageY + 50 <= startyposition && touch.pageY - 50 >= startyposition) {
         OpenMenu('slide-right');
         startyposition = -999;
