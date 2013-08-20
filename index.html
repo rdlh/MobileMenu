@@ -1,145 +1,105 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>Slide&Push Mobile Menu</title>
-		<meta name="description" content="Slide&Push Mobile Menu" />
-		<meta name="keywords" content="sliding menu, pushing menu, navigation, responsive, menu, css, jquery" />
-		<meta name="author" content="Rémi Delhaye (http://remidelhaye.fr)" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-		<!--[if IE 7]>
-		<link rel="stylesheet" type="text/css" href="css/font-awesome-ie7.min.css">
-		<![endif]-->
-		<script src="js/modernizr.custom.js"></script>
-	</head>
-	<body class="body-pushed">
-		<nav class="one-menu one-menu-vertical one-menu-left" id="one-menu-s1">
-			<h3><i class="icon-reorder"></i> Menu</h3>
-			<a href="#"><i class="icon-home"></i> Home</a>
-			<a href="#"><i class="icon-music"></i> Music</a>
-			<a href="#"><i class="icon-quote-right"></i> Forum</a>
-			<a href="#"><i class="icon-comment-alt"></i> Chat</a>
-			<a href="#"><i class="icon-envelope"></i> About</a>
-			<a href="#"><i class="icon-user"></i> Contact</a>
-		</nav>
-		<nav class="one-menu one-menu-vertical one-menu-right" id="one-menu-s2">
-			<h3><i class="icon-reorder"></i> Menu</h3>
-			<a href="#"><i class="icon-home"></i> Home</a>
-			<a href="#"><i class="icon-music"></i> Music</a>
-			<a href="#"><i class="icon-quote-right"></i> Forum</a>
-			<a href="#"><i class="icon-comment-alt"></i> Chat</a>
-			<a href="#"><i class="icon-envelope"></i> About</a>
-			<a href="#"><i class="icon-user"></i> Contact</a>
-		</nav>
-		<div class="container">
-			<div class="main">
-				<section>
-					<h2>Slide Menus</h2>
-					<!-- Class "one-menu-open" gets applied to menu -->
-					<button id="showLeft"><i class="icon-arrow-right"></i> Show/Hide <b>Left</b> Slide Menu</button>
-					<button id="showRight"><i class="icon-arrow-left"></i> Show/Hide <b>Right</b> Slide Menu</button>
-				</section>
-				<section class="buttonset">
-					<h2>Push Menus</h2>
-					<!-- Class "one-menu-open" gets applied to menu and "body-pushed-toleft" or "body-pushed-toright" to the body -->
-					<button id="showLeftPush"><i class="icon-chevron-right"></i> Show/Hide <b>Left</b> Push Menu</button>
-					<button id="showRightPush"><i class="icon-chevron-left"></i> Show/Hide <b>Right</b> Push Menu</button>
-				</section>
-			</div>
-		</div>
-		<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="js/classie.js"></script>
-		<script>
-			var menuLeft      = document.getElementById( 'one-menu-s1' ),
-			    menuRight     = document.getElementById( 'one-menu-s2' ),
-			    showLeft      = document.getElementById( 'showLeft' ),
-			    showRight     = document.getElementById( 'showRight' ),
-			    showLeftPush  = document.getElementById( 'showLeftPush' ),
-			    showRightPush = document.getElementById( 'showRightPush' ),
-            		    content       = document.getElementById( 'container' ),
-			    body          = document.body,
-			    active        = null;
+<html>
+<head>
 
-			showLeft.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuLeft, 'one-menu-open' );
-				active = this;
-				disableOther( 'showLeft' );
-			};
-			showRight.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( menuRight, 'one-menu-open' );
-				active = this;
-				disableOther( 'showRight' );
-			};
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'body-pushed-toright' );
-				classie.toggle( menuLeft, 'one-menu-open' );
-				active = this;
-				disableOther( 'showLeftPush' );
-			};
-			showRightPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'body-pushed-toleft' );
-				classie.toggle( menuRight, 'one-menu-open' );
-				active = this;
-				disableOther( 'showRightPush' );
-			};
-			
-			content.onclick = function(e) {
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset=utf-8 />
+  <title>MobileMenu</title>
 
-				if( e.target.nodeName !== 'BUTTON'){
+</head>
+<body>
 
-					if (active == showLeft) {
-						classie.toggle( active, 'active' );
-						classie.toggle( menuLeft, 'one-menu-open' );
-						active = null;
-						disableOther( 'showLeft' );
-					}
-					if (active == showRight) {
-						classie.toggle( active, 'active' );
-						classie.toggle( menuRight, 'one-menu-open' );
-						active = null;
-						disableOther( 'showRight' );
-					}
-					if (active == showLeftPush) {
-						classie.toggle( active, 'active' );
-						classie.toggle( body, 'body-pushed-toright' );
-						classie.toggle( menuLeft, 'one-menu-open' );
-						active = null;
-						disableOther( 'showLeftPush' );
-					}
-					if (active == showRightPush) {
-						classie.toggle( active, 'active' );
-						classie.toggle( body, 'body-pushed-toleft' );
-						classie.toggle( menuRight, 'one-menu-open' );
-						active = null;
-						disableOther( 'showRightPush' );
-					}
+<!--[if lt IE 10 ]>
+    <style>
+        /* were using modernizr this would be the fallback for non 3d capable devices */
+        .no-csstransforms3d .page-wrap.slide-left {
+            left:220px;
+        }
+        .no-csstransforms3d .page-wrap.slide-right {
+            left:-220px;
+        }
+    </style>
+<![endif]-->
+<!--[if lt IE 8 ]>
+    <style>
+        /* ie7 overflow hidden bug fix */
+        #container {
+            position:relative;
+        }
+        /* active link background for ie7 instead of pseudoelement */
+        .slide-menu ul li.active a {
+            background-color:#666;
+        }
+    </style>
+<![endif]-->
+<div id="container">
+    <div class="page-wrap">
+        <div class="slide-menu left-side">
+            <div class="menuTop">
+                 <h2>Push Menu</h2><span></span>
 
-				}
-			}
+            </div>
+            <ul>
+                <li><a href="#">Menu Link 001</a>
 
-			function disableOther( button ) {
-				if( button !== 'showLeft' ) {
-					classie.toggle( showLeft, 'disabled' );
-				}
-				if( button !== 'showRight' ) {
-					classie.toggle( showRight, 'disabled' );
-				}
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
-	</body>
+                </li>
+                <li><a href="#">Menu Link 002</a>
+
+                </li>
+                <li class="active"><a href="#">Menu Link 003</a>
+
+                </li>
+                <li><a href="#">Menu Link 004</a>
+
+                </li>
+                <li><a href="#">Menu Link 005</a>
+
+                </li>
+            </ul>
+        </div>
+        <div class="slide-menu right-side">
+            <div class="menuTop">
+                 <h2>Push Menu</h2><span></span>
+
+            </div>
+            <ul>
+                <li><a href="#">Menu Link 001</a>
+
+                </li>
+                <li><a href="#">Menu Link 002</a>
+
+                </li>
+                <li><a href="#">Menu Link 003</a>
+
+                </li>
+                <li class="active"><a href="#">Menu Link 004</a>
+
+                </li>
+                <li><a href="#">Menu Link 005</a>
+
+                </li>
+            </ul>
+        </div>
+        <div for="toggle" class="handle"><span class="left"></span>
+ <span class="logo">Mobile Menu </span>
+ <span class="right"></span>
+
+        </div>
+        <div class="content">
+             <h1>Irristagarri Mugikor Nabigazioa</h1>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sagittis enim ut gravida dignissim. Donec condimentum sapien ac justo semper feugiat. Praesent euismod at velit sed dapibus. Suspendisse consequat id nunc ac blandit. Nunc congue lorem ac ornare euismod. Aliquam fringilla scelerisque mattis. Fusce quis massa sed lorem interdum blandit. Curabitur viverra lorem ligula. Phasellus scelerisque dui non nibh mattis vestibulum. Nulla eget vestibulum turpis. Sed eu dolor a dolor mattis porttitor quis ac tellus. Cras lorem est, semper eu porttitor et, lacinia at sem. Maecenas tincidunt, mauris in egestas vestibulum, ligula leo gravida metus, nec egestas justo ante id neque. Quisque consequat dictum sodales.</p>
+            <p>Cras ligula eros, placerat id quam vel, placerat laoreet sem. Sed eu lectus sem. Phasellus tempus sem sapien. Suspendisse in odio commodo, rutrum nunc nec, faucibus quam. Suspendisse libero magna, tincidunt eu ligula eu, commodo tristique est. Nullam ornare quam neque, sit amet tincidunt enim ultrices ut. Praesent aliquet elit nulla, et porta enim fringilla in. Proin mi quam, egestas convallis mauris ut, rutrum dictum risus. In hac habitasse platea dictumst. Aenean semper pulvinar venenatis. Maecenas rutrum blandit tellus, ac imperdiet lacus pretium vel. Suspendisse sed pretium quam, a laoreet mauris.</p>
+            <p>Praesent tincidunt auctor nisl non commodo. Vestibulum sem risus, tempor a suscipit non, adipiscing eu enim. Mauris sed libero ligula. Etiam aliquet at urna in viverra. Aliquam facilisis, nisl porta pulvinar lobortis, lorem ligula sollicitudin justo, non malesuada enim libero a odio. Praesent convallis risus sit amet est iaculis sodales. Duis et consequat odio. Nunc ac risus nec elit sodales bibendum sed eget nunc. Sed venenatis, lectus vel molestie gravida, arcu quam dictum sapien, quis dictum augue sapien non velit. Nunc consectetur interdum erat aliquet cursus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur pulvinar massa risus, egestas accumsan elit imperdiet at. Nam molestie neque ac lectus consequat fermentum. Donec eget sapien sagittis, pellentesque nibh vitae, ultrices lacus. Cras commodo mattis enim, eu accumsan elit laoreet vitae.</p>
+            <p>Pellentesque mattis mi sit amet molestie tincidunt. Donec sed mollis neque, id commodo tortor. Duis bibendum magna non rhoncus condimentum. Vestibulum in rhoncus mauris. Maecenas venenatis aliquet erat vitae lobortis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In at malesuada orci. Nam eu tellus facilisis, semper turpis sit amet, rhoncus erat. Etiam nec mollis mi. Nunc cursus ipsum dolor, at scelerisque magna fringilla et. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed ipsum semper, tempor orci vel, tincidunt felis. Integer vel varius risus.</p>
+            <p>Nullam faucibus ipsum at pretium sagittis. Phasellus at ultricies urna. Nam adipiscing sed quam eget semper. Nulla vel consectetur est. Phasellus sem tellus, aliquet eu mi egestas, elementum gravida urna. Integer in enim mollis, vulputate nibh quis, venenatis sem. Morbi eu turpis quis ligula consequat molestie non sed arcu. Morbi auctor augue ligula, ac condimentum mauris lobortis non. Curabitur eget nibh urna.</p>
+        </div>
+    </div>
+    <!-- .page-wrap -->
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/app.js"></script>
+
+</body>
 </html>

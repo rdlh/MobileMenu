@@ -1,4 +1,4 @@
-#Slide&Push Mobile Menu#
+#![LOGO](https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-64.png) Slide&Push Mobile Menu (v2.0)#
 
 What is this ?
 --------------
@@ -11,21 +11,26 @@ What is this ?
 How it works ?
 --------------
 
-First, this plugin is designed only with CSS3 & Javascript, i use [classie](https://github.com/desandro/classie) toggle to change css classes & make it appear & disappear with that toggle only.
+v2.0 is here ! This optimized and light version of MobileMenu is now really more stable and browser-friendly, moreover, the essential css is awesomely more easy too enderstand, modify, and integrate !
 
 ##### HTML :
 
 ```html
 
+<span class="right"></span>
 
-<button id="show-menu">Show/Hide Menu</button>
-
-<nav class="my-responsive-menu" id="menu-left">
-  <h3>Menu</h3>
-  <a href="#">1st link</a>
-  <a href="#">2nd link</a>
-  <a href="#">3rd link</a>
-</nav>
+<div class="slide-menu right-side">
+    <div class="menuTop">
+         <h2>Push Menu</h2><span></span>
+    </div>
+    <ul>
+        <li class="active"><a href="#">Menu Link 001</a></li>
+        <li><a href="#">Menu Link 002</a></li>
+        <li><a href="#">Menu Link 003</a></li>
+        <li><a href="#">Menu Link 004</a></li>
+        <li><a href="#">Menu Link 005</a></li>
+    </ul>
+</div>
 
 ```
 
@@ -33,11 +38,29 @@ First, this plugin is designed only with CSS3 & Javascript, i use [classie](http
 
 ```javascript
 
+// FUNCTIONS
 
-document.getElementById( 'show-menu' ).onclick = function() {
-  classie.toggle( this, 'active' );
-  classie.toggle( document.getElementById( 'menu-left' ), '.my-responsive-menu-open' );
-};
+function OpenMenu(theTarget) {
+    $('.page-wrap').toggleClass(theTarget);
+}
+
+function CloseMenu() {
+    if ($('.page-wrap').hasClass('slide-left')) {
+        $('.page-wrap').toggleClass('slide-left');
+    } else if ($('.page-wrap').hasClass('slide-right')) {
+        $('.page-wrap').toggleClass('slide-right');
+    }
+}
+
+// EVENTS
+
+$('.handle .right').click(function () {
+    OpenMenu('slide-right');
+});
+
+$('.slide-menu .menuTop span, .content').click(function () {
+    CloseMenu();
+});
 
 ```
 
@@ -45,18 +68,14 @@ document.getElementById( 'show-menu' ).onclick = function() {
 
 ```css
 
-
-.my-responsive-menu {
-  position: fixed;
-  width: 240px;
-  height: 100%;
-  top: 0;
-  z-index: 1000;
-  left: -240px;
+.slide-menu {
+    background: #333333;
+    height: 100%;
+    position: absolute;
 }
-
-.my-responsive-menu-open {
-  left: 0px;
+.slide-menu.right-side {
+    right:-220px;
+    text-align: right;
 }
 
 ```
@@ -64,7 +83,7 @@ document.getElementById( 'show-menu' ).onclick = function() {
 Contributors
 ------------
 
- * [@RemiDelhaye](https://github.com/RemiDelhaye) ([http://remidelhaye.fr](http://remidelhaye.fr))
+ * Creator : [@RemiDelhaye](https://github.com/RemiDelhaye) ([http://remidelhaye.fr](http://remidelhaye.fr))
 
 Good issues
 -----------
