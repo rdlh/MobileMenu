@@ -25,4 +25,33 @@ $('.slide-menu .menuTop span, .content').click(function () {
     CloseMenu();
 });
 
-//OpenMenu('slide-left');
+// TOUCH DEVICES = FUTURE
+
+var startxposition = 0;
+var startyposition = 0;
+
+document.addEventListener('touchstart', function(event) {
+    var touch = event.touches[0];
+    startxposition = touch.pageX;
+    startyposition = touch.pageY;
+}, false);
+
+document.addEventListener('touchend', function(event) {
+    var difx = startxposition - event.changedTouches[0].pageX;
+    if(difx >= 210) {
+        if ($('.page-wrap').hasClass('slide-left')) {
+            CloseMenu();
+        } else {
+            OpenMenu('slide-right');
+        }
+        startyposition = -999;
+    }
+    if(difx <= -210) {
+        if ($('.page-wrap').hasClass('slide-right')) {
+            CloseMenu();
+        } else {
+            OpenMenu('slide-left');
+        }
+        startyposition = -999;
+    }
+}, false);
