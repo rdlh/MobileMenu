@@ -35,11 +35,13 @@ document.addEventListener('touchstart', function(event) {
     var touch = event.touches[0];
     startxposition = touch.pageX;
     startyposition = touch.pageY;
+    alert(touch.pageX + ' - ' + touch.pageY);
 }, false);
 
 document.addEventListener('touchend', function(event) {
     event.preventDefault();
     touch = event.touches[0];
+    alert(touch.pageX + ' - ' + touch.pageY)
     if(touch.pageX + 60 <= startxposition && touch.pageY + 10 <= startyposition && touch.pageY - 10 >= startyposition) {
         OpenMenu('slide-right');
     }
