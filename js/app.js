@@ -40,6 +40,7 @@ document.addEventListener('touchstart', function(event) {
 document.addEventListener('touchend', function(event) {
     event.preventDefault();
     touch = event.touches[0];
+    alert('x1 = ' + startxposition + ' - x2 = ' + touch.pageX);
     if(touch.pageX + 180 <= startxposition && touch.pageY + 50 <= startyposition && touch.pageY - 50 >= startyposition) {
         OpenMenu('slide-right');
     }
