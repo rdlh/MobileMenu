@@ -39,11 +39,19 @@ document.addEventListener('touchstart', function(event) {
 document.addEventListener('touchend', function(event) {
     var difx = startxposition - event.changedTouches[0].pageX;
     if(difx >= 210) {
-        OpenMenu('slide-right');
+        if ($('.page-wrap').hasClass('slide-left')) {
+            CloseMenu();
+        } else {
+            OpenMenu('slide-right');
+        }
         startyposition = -999;
     }
     if(difx <= -210) {
-        OpenMenu('slide-left');
+        if ($('.page-wrap').hasClass('slide-right')) {
+            CloseMenu();
+        } else {
+            OpenMenu('slide-left');
+        }
         startyposition = -999;
     }
 }, false);
