@@ -37,12 +37,12 @@ document.addEventListener('touchstart', function(event) {
 }, false);
 
 document.addEventListener('touchend', function(event) {
-    alert(startxposition + ' - ' + event.changedTouches[0].pageX);
-    if(touch.pageX + 180 <= startxposition && touch.pageY + 50 <= startyposition && touch.pageY - 50 >= startyposition) {
+    var difx = startx - event.changedTouches[0].pageX;
+    if(difx >= 180 && event.changedTouches[0].pageY + 50 <= startyposition && event.changedTouches[0].pageY - 50 >= startyposition) {
         OpenMenu('slide-right');
         startyposition = -999;
     }
-    if(touch.pageX - 180 >= startxposition && touch.pageY + 50 <= startyposition && touch.pageY - 50 >= startyposition) {
+    if(difx <= -180 && event.changedTouches[0].pageY + 50 <= startyposition && event.changedTouches[0].pageY - 50 >= startyposition) {
         OpenMenu('slide-left');
         startyposition = -999;
     }
