@@ -31,7 +31,6 @@ var startxposition = 0;
 var startyposition = 0;
 
 document.addEventListener('touchstart', function(event) {
-    event.preventDefault();
     var touch = event.touches[0];
     startxposition = touch.pageX;
     startyposition = touch.pageY;
