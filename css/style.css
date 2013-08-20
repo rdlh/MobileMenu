@@ -1,0 +1,249 @@
+/* Enable box model n resets */
+ * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin:0;
+    font-size:16px;
+    font-family:"Segoe UI", "Segoe", Tahoma, Helvetica, Arial, sans-serif;
+}
+/* Hidden Scrollbars */
+ #container {
+    overflow: hidden;
+      -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+/* Reset for the page-wrapper */
+ .page-wrap {
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    /* Transforms Reset */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    /* */
+    background: #f6f3fe;
+    position: relative;
+}
+/* If Slide page-wrap offsets left or right */
+ .page-wrap.slide-left {
+    -webkit-transform: translate3d(220px, 0, 0);
+    -moz-transform: translate3d(220px, 0, 0);
+    -ms-transform: translate3d(220px, 0, 0);
+    -o-transform: translate3d(220px, 0, 0);
+    transform: translate3d(220px, 0, 0);
+}
+.page-wrap.slide-right {
+    -webkit-transform: translate3d(-220px, 0, 0);
+    -moz-transform: translate3d(-220px, 0, 0);
+    -ms-transform: translate3d(-220px, 0, 0);
+    -o-transform: translate3d(-220px, 0, 0);
+    transform: translate3d(-220px, 0, 0);
+}
+/* Menu Branding */
+ .slide-menu {
+    background: #333333;
+/*    width: 220px;*/
+    height: 100%;
+    position: absolute;
+}
+.slide-menu.left-side {
+    left:-220px;
+    box-shadow: -10px 0px 40px rgba(0, 0, 0, 0.55) inset;
+    text-align: left;
+}
+.slide-menu.right-side {
+    right:-220px;
+    box-shadow: 10px 0px 40px rgba(0, 0, 0, 0.55) inset;
+    text-align: right;
+}
+/* fix crazy focus on right menu elements in android 
+Due to the translate3d some focus of the right menu a and Span tags were showing offset on android.
+*/
+ /*.slide-menu a, .slide-menu span {
+  -webkit-transform: translate3d(0,0,0);
+}*/
+
+.slide-menu .menuTop {
+    overflow:hidden;
+}
+.slide-menu .menuTop h2 {
+    color:#fff;
+    margin:.35em 0;
+}
+.slide-menu.left-side .menuTop h2 {
+    float:left;
+    padding:0 0 0 .3em;
+}
+.slide-menu.right-side .menuTop h2 {
+    float:right;
+    padding:0 .3em 0 0;
+}
+.slide-menu .menuTop span {
+    width:50px;
+    height:50px;
+    background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAA3NCSVQICAjb4U/gAAAAMFBMVEX///////////////////////////////////////////////////////////////9Or7hAAAAAEHRSTlMAESIzRFVmd4iZqrvM3e7/dpUBFQAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDgvMTkvMTPtSK/GAAAA30lEQVQokW2RP04CQRjFH4isGwNyAAo6WmsKtbOwgBMYjmCMB/AIewFCwQGwsJZ4AmzpSAiVhSTQrG78+THLRsLHK2bme/PmzfdHOor2G3w+/scdAkZFfMYOz3lcmsLs6XYAWSMQTXjd7nfwHogpy1x6T5Y7/F7mxMlXcLlmUbhfsbZ1TE/qS1XplG+pzI8Up9IwkSa0FLGxgCTGyC4POudDVUiH0FeNF9VJtgqDKWLmujCVHQx2EbEy4kZBYgJVjhMHT5yp+9Yl5lJ3xfnyXYNcC32T3RjcoPwo/bD38QfwPsaxTt8olQAAAABJRU5ErkJggg==');
+    background-repeat:no-repeat;
+    display:block;
+    background-position:50%;
+}
+.slide-menu.left-side .menuTop span {
+    float:right;
+    margin:0 0 0 5px;
+}
+.slide-menu.right-side .menuTop span {
+    float:left;
+    margin:0 5px 0 0;
+}
+.slide-menu .menuTop span:hover {
+    cursor:pointer;
+}
+.slide-menu ul {
+    width:220px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display:block;
+}
+.slide-menu ul li {
+    position:relative;
+}
+/* classical pseudo element border trick for the active li */
+ .slide-menu.left-side ul li.active a:after {
+    border-bottom: 13px solid transparent;
+    border-top: 13px solid transparent;
+    border-right: 13px solid #f6f3fe;
+    right: 0px;
+    content:'';
+    top: 6px;
+    position: absolute;
+}
+.slide-menu.right-side ul li.active a:after {
+    border-bottom: 13px solid transparent;
+    border-top: 13px solid transparent;
+    border-left: 13px solid #f6f3fe;
+    left: 0px;
+    content:'';
+    top: 6px;
+    position: absolute;
+}
+.slide-menu ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fefefe;
+    display: block;
+    padding: .5em 1em .5em .5em;
+    margin-bottom: 1px;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, .02) 0%, rgba(0, 0, 0, .1) 100%);
+    background: -moz-linear-gradient(rgba(255, 255, 255, .02) 0%, rgba(0, 0, 0, .1) 100%);
+    background: -o-linear-gradient(rgba(255, 255, 255, .02) 0%, rgba(0, 0, 0, .1) 100%);
+    background: linear-gradient(rgba(255, 255, 255, .02) 0%, rgba(0, 0, 0, .1) 100%);
+    color: #fff;
+    text-shadow: 0 1px 0 #000;
+}
+.slide-menu ul li a:hover {
+    background: -webkit-linear-gradient(rgba(223, 0, 64, 0.75) 0%, rgba(210, 0, 41, 1) 100%);
+    background: -moz-linear-gradient(rgba(223, 0, 64, 0.75) 0%, rgba(210, 0, 41, 1) 100%);
+    background: -o-linear-gradient(rgba(223, 0, 64, 0.75) 0%, rgba(210, 0, 41, 1) 100%);
+    background: linear-gradient(rgba(223, 0, 64, 0.75) 0%, rgba(210, 0, 41, 1) 100%);
+    background-color:#df0040;
+}
+/* Brand for the Top Bar(handle) and Left n right Burger Menu Icons(span) */
+ .handle {
+    width: 100%;
+    display: block;
+    position: relative;
+    height: 50px;
+    /*background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(50%, #eeeeee), color-stop(100%, #dddddd));*/
+    background: -webkit-linear-gradient(#BF0035, #D4003C, #df0040);
+    background: -moz-linear-gradient(#BF0035, #D4003C, #df0040);
+    background: -o-linear-gradient(#BF0035, #D4003C, #df0040);
+    background: linear-gradient(#BF0035, #D4003C, #df0040);
+    background-color:#df0040;
+    color: rgba(255, 255, 255, 0.25);
+    overflow:hidden;
+    padding:0;
+    text-align:center;
+}
+.handle .logo {
+    background: none;
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
+    padding: 0;
+    position: static;
+    font-size: 45px;
+    color: #fff;
+}
+.handle span {
+    width:50px;
+    height:50px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAAA3NCSVQICAjb4U/gAAAABlBMVEX///////9VfPVsAAAAAnRSTlMA/1uRIrUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAAAFnRFWHRDcmVhdGlvbiBUaW1lADA4LzE5LzEz7UivxgAAAB1JREFUCJljYMAC2P//f8DA////ByQCLEZfxSAAADGLLEQncL+9AAAAAElFTkSuQmCC');
+    background-repeat:no-repeat;
+    background-position:50%;
+    display:block;
+    position:absolute;
+    top:0;
+}
+.handle span.left {
+    left:0;
+}
+.handle span.right {
+    right:0;
+}
+
+.page-wrap.slide-left .handle span.left,
+.page-wrap.slide-right .handle span.right{
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+
+.handle span.left:hover, .handle span.right:hover, .menuTop span:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+/*specific for the tapping on android mobile devices*/
+ .handle span.left,.handle span.right, .menuTop span {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.25);
+}
+.content {
+    padding: 0 1em;
+    /* for some strange reason the content layer sometimes it does not render until first tap on android ICS, the next line fixes this*/
+    position:relative;
+    height:2000px;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance:none;
+    width:12px;
+    _background-color:#df0040;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius:12px;
+    border:4px solid rgba(255,255,255,0);
+    background-clip:content-box;
+    _background-color:#df0040;
+    background-color: #df0040;
+}
+::-webkit-scrollbar-thumb:hover {
+    border-radius:12px;
+    border:4px solid rgba(255,255,255,0);
+    background-clip:content-box;
+    background-color:#df0040;
+}
+
+::-webkit-scrollbar-corner {
+    background-color:#df0040;
+}
+
