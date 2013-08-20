@@ -38,11 +38,11 @@ document.addEventListener('touchstart', function(event) {
 
 document.addEventListener('touchend', function(event) {
     var difx = startx - event.changedTouches[0].pageX;
-    if(difx >= 180 && event.changedTouches[0].pageY + 50 <= startyposition && event.changedTouches[0].pageY - 50 >= startyposition) {
+    if(difx >= 180) {
         OpenMenu('slide-right');
         startyposition = -999;
     }
-    if(difx <= -180 && event.changedTouches[0].pageY + 50 <= startyposition && event.changedTouches[0].pageY - 50 >= startyposition) {
+    if(difx <= -180) {
         OpenMenu('slide-left');
         startyposition = -999;
     }
