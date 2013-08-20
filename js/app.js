@@ -25,4 +25,22 @@ $('.slide-menu .menuTop span, .content').click(function () {
     CloseMenu();
 });
 
-//OpenMenu('slide-left');
+// TOUCH DEVICES = FUTURE
+
+var startxposition = 0;
+var startyposition = 0;
+
+document.addEventListener('touchstart', function(event) {
+    event.preventDefault();
+    var touch = event.touches[0];
+    startxposition = touch.pageX;
+    startyposition = touch.pageY;
+}, false);
+
+document.addEventListener('touchend', function(event) {
+    event.preventDefault();
+    touch = event.touches[0];
+    if(touch.pageX + 60 <= startxposition && touch.pageY + 10 <= startyposition && touch.pageY - 10 >= startyposition) {
+        OpenMenu('slide-right');
+    }
+}, false);
