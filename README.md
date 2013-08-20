@@ -1,9 +1,10 @@
-#![LOGO](https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png) Slide&Push Mobile Menu (v2.0)#
+#![LOGO](https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png) Slide&Push Mobile Menu (v2.0) 
+![TouchFriendly](http://www.queness.com/resources/images/11755.gif)
 
 What is this ?
 --------------
 
-*This javascript plugin is an Open-source Javascript mobile app menu*
+This javascript plugin is an **Open-source** and **TouchFriendly** Javascript mobile app menu
 
 > ## [DEMO v2.0](http://remidelhaye.github.io/MobileMenu)
 > #### [DEMO v1.0](http://remidelhaye.github.io/MobileMenu/v1.0)
