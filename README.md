@@ -1,17 +1,18 @@
-#![LOGO](https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-64.png) Slide&Push Mobile Menu (v2.0)#
+#![LOGO](https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png) Slide&Push Mobile Menu (v2.0)#
 
 What is this ?
 --------------
 
 *This javascript plugin is an Open-source Javascript mobile app menu*
 
-> ### [DEMO](http://remidelhaye.github.io/MobileMenu)
+> ## [DEMO v2.0](http://remidelhaye.github.io/MobileMenu)
+> #### [DEMO v1.0](http://remidelhaye.github.io/MobileMenu/v1.0)
 
 
 How it works ?
 --------------
 
-v2.0 is here ! This optimized and light version of MobileMenu is now really more stable and browser-friendly, moreover, the essential css is awesomely more easy too enderstand, modify, and integrate !
+**v2.0 is here !** This optimized and light version of MobileMenu is now really more stable and browser-friendly, moreover, the essential css is awesomely more easy too enderstand, modify, and integrate !
 
 ##### HTML :
 
