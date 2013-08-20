@@ -37,14 +37,15 @@ document.addEventListener('touchstart', function(event) {
     startyposition = touch.pageY;
 }, false);
 
-document.addEventListener('touchend', function(event) {
+document.addEventListener('touchmove', function(event) {
     event.preventDefault();
     touch = event.touches[0];
-    alert('x1 = ' + startxposition + ' - x2 = ' + touch.pageX);
     if(touch.pageX + 180 <= startxposition && touch.pageY + 50 <= startyposition && touch.pageY - 50 >= startyposition) {
         OpenMenu('slide-right');
+        startyposition = -999;
     }
     if(touch.pageX - 180 >= startxposition && touch.pageY + 50 <= startyposition && touch.pageY - 50 >= startyposition) {
         OpenMenu('slide-left');
+        startyposition = -999;
     }
 }, false);
