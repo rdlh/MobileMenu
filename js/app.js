@@ -38,12 +38,11 @@ document.addEventListener('touchstart', function(event) {
 
 document.addEventListener('touchend', function(event) {
     var difx = startxposition - event.changedTouches[0].pageX;
-    alert(difx);
-    if(difx >= 180) {
+    if(difx >= 210) {
         OpenMenu('slide-right');
         startyposition = -999;
     }
-    if(difx <= -180) {
+    if(difx <= -210) {
         OpenMenu('slide-left');
         startyposition = -999;
     }
