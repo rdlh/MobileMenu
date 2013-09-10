@@ -183,7 +183,7 @@ Due to the translate3d some focus of the right menu a and Span tags were showing
     display: inline-block;
     padding: 0;
     position: static;
-    font-size: 45px;
+    font-size: 35px;
     color: #fff;
 }
 .handle span {
